@@ -11,6 +11,7 @@ import com.PPMTool.repository.BacklogRepository;
 import com.PPMTool.repository.ProjectRepository;
 import com.PPMTool.repository.ProjectTaskRepository;
 
+
 @Service
 public class ProjectTaskService {
 
@@ -31,6 +32,7 @@ public class ProjectTaskService {
             //PTs to be added to a specific project, project != null, BL exists
             Backlog backlog = backlogRepository.findByProjectIdentifier(projectIdentifier);
             //set the bl to pt
+            System.out.println(backlog);
             projectTask.setBacklog(backlog);
             //we want our project sequence to be like this: IDPRO-1  IDPRO-2  ...100 101
             Integer BacklogSequence = backlog.getPTSequence();
@@ -50,7 +52,8 @@ public class ProjectTaskService {
                 projectTask.setStatus("TO_DO");
             }
 
-            if(projectTask.getPriority()==null){ //In the future we need projectTask.getPriority()== 0 to handle the form
+            //Fix bug with priority in Spring Boot Server, needs to check null first
+            if(projectTask.getPriority()==0||projectTask.getPriority()==null){ //In the future we need projectTask.getPriority()== 0 to handle the form
                 projectTask.setPriority(3);
             }
 
