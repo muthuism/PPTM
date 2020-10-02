@@ -1,4 +1,4 @@
-package com.PPMTool.resource;
+package com.PPMTool.controller;
 
 import java.util.HashMap;
 import java.util.Map;

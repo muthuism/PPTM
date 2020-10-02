@@ -1,4 +1,4 @@
-package com.PPMTool.resource;
+package com.PPMTool.controller;
 
 import javax.validation.Valid;
 
